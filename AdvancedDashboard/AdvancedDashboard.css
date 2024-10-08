@@ -1,0 +1,102 @@
+:root {
+    --base-font-size: 16px;
+    --base-padding: 20px;
+    --button-font-size: 14px;
+}
+
+/* Responsive breakpoints for dynamic font and padding */
+@media (max-width: 1200px) {
+    :root {
+        --base-font-size: 15px;
+        --base-padding: 18px;
+        --button-font-size: 13px;
+    }
+}
+
+@media (max-width: 992px) {
+    :root {
+        --base-font-size: 14px;
+        --base-padding: 16px;
+        --button-font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --base-font-size: 13px;
+        --base-padding: 14px;
+        --button-font-size: 11px;
+    }
+}
+
+@media (max-width: 576px) {
+    :root {
+        --base-font-size: 12px;
+        --base-padding: 12px;
+        --button-font-size: 10px;
+    }
+}
+
+.advanced-dashboard {
+    padding: var(--base-padding);
+    font-family: Arial, sans-serif;
+    font-size: var(--base-font-size);
+}
+
+.advanced-dashboard h1 {
+    color: #007bff;
+    margin-bottom: 20px;
+    font-size: calc(var(--base-font-size) * 1.5); /* Dynamic font size for heading */
+}
+
+.advanced-dashboard input {
+    padding: clamp(8px, 1vw, 12px); /* Dynamic padding */
+    margin-bottom: 20px;
+    width: 80%;
+    font-size: calc(var(--base-font-size) * 0.9); /* Dynamic font size for input */
+}
+
+.advanced-dashboard button {
+    margin-left: 10px;
+    padding: clamp(8px, 1vw, 12px); /* Dynamic padding for buttons */
+    background-color: #007bff;
+    border: none;
+    cursor: pointer;
+    font-size: var(--button-font-size); /* Dynamic font size for button */
+}
+
+.advanced-dashboard button:hover {
+    background-color: #0056b3;
+}
+
+.advanced-dashboard table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: calc(var(--base-font-size) * 0.9); /* Dynamic font size for table */
+}
+
+.advanced-dashboard th,
+.advanced-dashboard td {
+    padding: clamp(8px, 1vw, 12px); /* Dynamic padding for table cells */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.advanced-dashboard th {
+    background-color: #f2f2f2;
+    font-size: calc(var(--base-font-size) * 0.95); /* Dynamic font size for table header */
+}
+
+.AdvancedDashboardfooter {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    padding: clamp(10px, 1vw, 15px); /* Dynamic padding for footer */
+    width: 100%;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    padding-left: clamp(10px, 2vw, 20px); /* Dynamic padding-left for footer */
+}
