@@ -1,0 +1,173 @@
+:root {
+    --base-font-size: 16px;
+    --base-padding: 20px;
+    --button-font-size: 14px;
+}
+
+/* Dynamic scaling for different screen sizes */
+@media (max-width: 1200px) {
+    :root {
+        --base-font-size: 15px;
+        --base-padding: 18px;
+        --button-font-size: 13px;
+    }
+}
+
+@media (max-width: 992px) {
+    :root {
+        --base-font-size: 14px;
+        --base-padding: 16px;
+        --button-font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --base-font-size: 13px;
+        --base-padding: 14px;
+        --button-font-size: 11px;
+    }
+}
+
+@media (max-width: 576px) {
+    :root {
+        --base-font-size: 12px;
+        --base-padding: 12px;
+        --button-font-size: 10px;
+    }
+}
+
+/* Main Container */
+.dicom-worklists {
+    padding: var(--base-padding);
+    background-color: transparent;
+    padding-top: 0; /* Removes extra space */
+}
+
+/* Search Container */
+.search-container1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 18px;
+    width: 100%;
+    gap: 5px;
+}
+
+.search-container1 input {
+    padding: clamp(5px, 1vw, 10px);
+    width: calc(100% - 130px);
+    max-width: 1800px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: clamp(0.8rem, 1vw, 1.2rem); /* Dynamic font size */
+}
+
+.search-container1 button {
+    padding: clamp(5px, 0.5vw, 10px);
+    font-size: clamp(0.8rem, 1vw, 1.2rem);
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    margin-right: 30px;
+}
+
+.search-container1 button:hover {
+    background-color: #0056b3;
+}
+
+/* Table Styles */
+.table-container1 {
+    max-height: 800px; /* Adjust the height as needed */
+    overflow-y: auto; /* Add vertical scrollbar */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+    font-size: clamp(0.7rem, 1vw, 1rem); /* Dynamic font size */
+}
+
+th, td {
+    padding: clamp(8px, 1vw, 12px); /* Dynamic padding */
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f1f1f1;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Footer Styles */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    padding: clamp(8px, 1vw, 10px); /* Dynamic padding */
+    width: 100%;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    padding-left: 20px;
+}
+
+.footer-buttons {
+    display: flex;
+    justify-content: center;
+    padding: clamp(5px, 1vw, 10px); /* Dynamic padding */
+    background-color: #f8f8f8;
+    border-top: 1px solid #e7e7e7;
+    width: 97%;
+    height: auto; /* Adjust based on content size */
+}
+
+.footer-button {
+    padding: clamp(4px, 1vw, 8px);
+    margin: 0 2px;
+    height: 30px;
+    font-size: clamp(0.7rem, 1vw, 1rem); /* Dynamic font size */
+}
+
+.footer-button:hover {
+    background-color: #0056b3;
+}
+
+.footer-icon {
+    margin-right: 5px;
+}
+
+.dicom-worklists.hidden {
+    opacity: 0.5;
+    pointer-events: none; /* Ensures the parent content is not interactive */
+}
+
+/* Modal and Overlay Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.new-worklist-modal-overlay {
+    z-index: 1000;
+}
+
+.new-worklist-modal {
+    z-index: 1001;
+}
