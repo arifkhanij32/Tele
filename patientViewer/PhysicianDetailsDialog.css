@@ -1,0 +1,265 @@
+:root {
+    --font-size-small: clamp(0.7rem, 1.2vw, 0.8rem); /* Slightly smaller text for small screens */
+    --font-size-medium: clamp(0.8rem, 1.8vw, 0.9rem); /* Slightly smaller medium text for small screens */
+    --font-size-large: clamp(1rem, 2vw, 1.1rem); /* Slightly smaller larger text for small screens */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.physician-dialog {
+    position: relative;
+    background-color: white;
+    padding: clamp(10px, 2vw, 12px); /* Reduced padding */
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 40vw; /* Reduced width */
+    max-width: 70vw; /* Ensure it doesn't exceed viewport width */
+    max-height: 80vh; /* Ensure it doesn't exceed viewport height */
+    overflow: hidden;
+    font-size: var(--font-size-medium); /* Set the dialog's base font size */
+}
+
+@media (max-width: 768px) {
+    .physician-dialog {
+        width: 80vw; /* Full width on smaller screens */
+        padding: 8px; /* Adjust padding for smaller screens */
+    }
+}
+
+
+.physician-dialog h2 {
+    margin-bottom: clamp(8px, 1.5vw, 10px); /* Reduced margin */
+    font-size: var(--font-size-large); /* Responsive heading */
+}
+
+.physician-dialog .form-group {
+    margin-bottom: clamp(8px, 1.5vw, 10px); /* Reduced spacing */
+}
+
+.physician-dialog .form-group label {
+    display: block;
+    margin-bottom: clamp(4px, 0.8vw, 8px);
+    font-size: var(--font-size-medium); /* Responsive label */
+}
+
+.physician-dialog .form-group input {
+    width: 100%;
+    padding: clamp(4px, 0.8vw, 8px); /* Reduced padding */
+    font-size: inherit; /* Inherit the dialog's base font size */
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.dialog-footer {
+    margin-top: clamp(8px, 1.5vw, 12px); /* Reduced margin */
+    display: flex;
+    justify-content: flex-end;
+    gap: clamp(4px, 0.8vw, 8px); /* Reduced gap */
+}
+
+.dialog-footer button {
+    padding: clamp(2px, 0.6vw, 6px) clamp(6px, 1.2vw, 14px); /* Reduced padding */
+    font-size: var(--font-size-medium); /* Responsive button text */
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    color: black; /* Set text color */
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    min-width: 60px; /* Minimum width of the button */
+    margin: 0 10px; /* Add some margin for spacing between buttons */
+}
+
+.dialog-footer button:disabled {
+    color: #ccc; /* Disabled button color */
+    cursor: not-allowed;
+}
+
+.dialog-footer button svg {
+    font-size: 1.5em; /* Adjust the size of the icon */
+    display: block; /* Make the icon block-level so text aligns underneath */
+    margin: 0 auto 5px auto; /* Center icon and add some margin below */
+}
+
+.dialog-footer button span {
+    display: block; /* Make the text block-level */
+    font-size: 0.9em; /* Adjust the size of the text under the icon */
+    margin-top: 5px;
+}
+
+.selected {
+    background-color: #e9ecef;
+}
+
+.shareWithPhysician-dialog-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: clamp(8px, 1.5vw, 12px); /* Reduced margin */
+    table-layout: fixed;
+    font-size: var(--font-size-small); /* Responsive table text */
+    overflow-x: auto; /* Allow horizontal scrolling */
+}
+
+.shareWithPhysician-dialog-table th, 
+.shareWithPhysician-dialog-table td {
+    padding: clamp(4px, 0.8vw, 8px); /* Reduced padding */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.shareWithPhysician-dialog-table th {
+    background-color: #f8f9fa;
+    font-size: inherit; /* Inherit the dialog's base font size */
+}
+
+.shareWithPhysician-dialog-table tbody {
+    display: block;
+    max-height: 30vh; /* Responsive max-height */
+    overflow-y: auto; /* Vertical scrollbar */
+}
+
+.shareWithPhysician-dialog-table thead,
+.shareWithPhysician-dialog-table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.shareWithPhysician-dialog-table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.physician-dialog form {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Two columns: auto for labels, 1fr for inputs */
+    gap: 8px 16px; /* Adjusted space between grid items */
+    align-items: center; /* Align items vertically */
+}
+
+.physician-dialog .form-group {
+    display: contents; /* Use contents to place each label and input correctly in the grid */
+}
+
+.physician-dialog .form-group label {
+    text-align: right; /* Align the text to the right */
+    font-size: inherit; /* Inherit the dialog's base font size */
+}
+
+.physician-dialog .form-group input {
+    width: 100%;
+    padding: clamp(4px, 0.8vw, 8px); /* Reduced padding */
+    font-size: inherit; /* Inherit the dialog's base font size */
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Ensure padding does not affect the width */
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: black;
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.close-button:hover {
+    color: #ff0000;
+}
+
+/* Media Query to adjust table layout on smaller screens */
+@media (max-width: 768px) {
+    .physician-dialog {
+        width: 90vw; /* Full width on smaller screens */
+        padding: 8px; /* Adjust padding for smaller screens */
+    }
+
+    .shareWithPhysician-dialog-table th, 
+    .shareWithPhysician-dialog-table td {
+        font-size: var(--font-size-small); /* Further reduce font size on small screens */
+    }
+
+    .shareWithPhysician-dialog-table {
+        font-size: var(--font-size-small); /* Ensure the table adjusts font size */
+        overflow-x: scroll; /* Enable horizontal scroll */
+    }
+
+    .dialog-footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px; /* Reduce gap between buttons */
+    }
+
+    .dialog-footer button {
+        width: 100%; /* Make buttons take full width */
+        margin: 5px 0; /* Add margin between buttons */
+    }
+}
+
+.shareWithPhysician-dialog-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: clamp(8px, 1.5vw, 12px); /* Reduced margin */
+    table-layout: fixed; /* Ensures columns take fixed space */
+    font-size: var(--font-size-small); /* Responsive table text */
+    overflow-x: auto; /* Allow horizontal scrolling */
+}
+
+.shareWithPhysician-dialog-table th, 
+.shareWithPhysician-dialog-table td {
+    padding: clamp(4px, 0.8vw, 8px); /* Reduced padding */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.shareWithPhysician-dialog-table th {
+    background-color: #f8f9fa;
+    font-size: inherit; /* Inherit the dialog's base font size */
+}
+
+/* Added this to increase column spacing */
+.shareWithPhysician-dialog-table th:nth-child(3), /* Phone Number Column */
+.shareWithPhysician-dialog-table td:nth-child(3) {
+    width: 20%; /* Adjust width as needed */
+}
+
+.shareWithPhysician-dialog-table th:nth-child(4), /* WhatsApp Number Column */
+.shareWithPhysician-dialog-table td:nth-child(4) {
+    width: 20%; /* Adjust width as needed */
+}
+
+.shareWithPhysician-dialog-table tbody {
+    display: block;
+    max-height: 30vh; /* Responsive max-height */
+    overflow-y: auto; /* Vertical scrollbar */
+}
+
+.shareWithPhysician-dialog-table thead,
+.shareWithPhysician-dialog-table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.shareWithPhysician-dialog-table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}

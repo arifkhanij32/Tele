@@ -1,0 +1,638 @@
+/* General layout adjustments */
+.patient-viewer {
+    padding: clamp(0.2rem, 0.4vw, 0.5rem) clamp(0.5rem, 1vw, 1rem);
+    font-size: clamp(0.7rem, 0.9vw, 1rem);
+}
+
+/* Filter adjustments */
+.filters {
+    display: flex;
+    gap: 5px; /* Reduce gap between filters */
+    align-items: center;
+    margin-bottom: 5px; /* Ensure space between filters and search bar */
+}
+
+/* Move search bar to the left */
+.header .search-container1 {
+    margin-bottom: 5px; /* Reduce space below search bar */
+    margin-top: -5px; /* Move the search bar up slightly */
+    display: flex; /* Ensures search bar is aligned with its content */
+    justify-content: flex-start; /* Aligns the search bar to the left */
+    margin-left: -4px;
+}
+
+.header .search-container1 input {
+    width: auto; /* Adjust the width to fit content */
+    flex-grow: 1; /* Allows the input to grow as much as needed */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: clamp(0.2rem, 0.4vw, 0.5rem);
+    font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+}
+
+/* Clear button */
+.filters .clear-button {
+    background-color: white; /* White background */
+    color: black; /* Black text */
+    border: 2px solid black; /* Black border */
+    padding: 6px 12px; /* Padding for button */
+    border-radius: 4px; /* Slightly rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: clamp(0.75rem, 1vw, 0.85rem);
+}
+
+/* Table wrapper adjustments */
+.table-wrapper {
+    margin-top: 0;
+    width: 100%; /* Ensures the table takes up full width */
+    overflow-x: auto; /* Add horizontal scrollbar */
+    overflow-y: auto; /* Add vertical scrollbar */
+    max-height: 700px; /* Set max height for the table to trigger vertical scrollbar */
+}
+
+.table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    margin-top: -5px; /* Reduce space between search bar and table */
+    font-size: clamp(0.7rem, 0.9vw, 1rem);
+}
+.table-wrapper tbody tr.selected {
+    background-color: #8fb4ee !important; /* Light blue for selected rows */
+    color: black; /* Optional: change text color for better contrast */
+}
+
+/* Zebra striping for table rows */
+.table-wrapper tbody tr:nth-child(odd) {
+    background-color: #f9f9f9; /* Light grey for odd rows */
+}
+
+.table-wrapper tbody tr:nth-child(even) {
+    background-color: #ffffff; /* White for even rows */
+}
+
+.table-wrapper th, .table-wrapper td {
+    padding: clamp(0.2rem, 0.4vw, 0.5rem) clamp(0.5rem, 1vw, 1rem);
+    text-align: left;
+    font-size: clamp(0.7rem, 0.9vw, 1rem);
+}
+
+/* Checkbox adjustments */
+input[type="checkbox"] {
+    width: clamp(0.7rem, 1.2vw, 1rem);
+    height: clamp(0.7rem, 1.2vw, 1rem);
+    cursor: pointer;
+}
+
+.visits-table td input[type="checkbox"],
+.visits-table th input[type="checkbox"] {
+    display: block;
+    margin: auto;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    input[type="checkbox"] {
+        width: clamp(0.6rem, 1.5vw, 0.8rem);
+        height: clamp(0.6rem, 1.5vw, 0.8rem);
+    }
+
+    button,
+    .footer-btn {
+        padding: clamp(0.2rem, 1vw, 0.4rem) clamp(0.4rem, 1.5vw, 0.8rem);
+        font-size: clamp(0.6rem, 1vw, 0.8rem);
+        min-width: 60px;
+    }
+}
+.warning-dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.warning-dialog {
+    background-color: white;
+    padding: clamp(10px, 2vw, 20px); /* Dynamic padding */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: clamp(200px, 50%, 300px); /* Dynamic width to reduce the size */
+    font-size: clamp(0.8rem, 1.5vw, 1.2rem); /* Dynamic font size */
+}
+
+.warning-dialog h2 {
+    font-size: clamp(1rem, 2vw, 1.5rem); /* Dynamic font size for heading */
+    margin-bottom: clamp(0.5rem, 1vw, 1rem);
+}
+
+.warning-dialog p {
+    font-size: clamp(0.8rem, 1.2vw, 1rem); /* Dynamic font size for paragraph */
+    margin-bottom: clamp(0.5rem, 1vw, 1rem);
+}
+
+.warning-dialog button {
+    padding: clamp(5px, 1vw, 10px) clamp(10px, 2vw, 15px); /* Dynamic padding */
+    font-size: clamp(0.8rem, 1.2vw, 1rem); /* Dynamic font size for button */
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: clamp(0.5rem, 1vw, 1rem);
+}
+
+.warning-dialog button:hover {
+    background-color: #0056b3;
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.merge-dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: darken the background */
+    z-index: 1000; /* Ensure it's on top of everything else */
+}
+
+.merge-dialog {
+    background-color: white;
+    padding: clamp(10px, 2vw, 20px); /* Dynamic padding */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: clamp(300px, 50%, 600px); /* Dynamic width */
+    font-size: clamp(0.8rem, 1.2vw, 1rem); /* Dynamic font size */
+    max-height: 80vh; /* Prevent the dialog from being too tall */
+    overflow-y: auto; /* Add scroll if content overflows */
+}
+
+.merge-dialog h2 {
+    font-size: clamp(1.2rem, 2vw, 1.5rem); /* Dynamic font size for heading */
+    margin-bottom: clamp(0.5rem, 1vw, 1rem);
+}
+
+.merge-dialog p {
+    font-size: clamp(0.9rem, 1.2vw, 1rem); /* Dynamic font size for paragraph */
+    margin-bottom: clamp(0.5rem, 1vw, 1rem);
+}
+
+.merge-dialog table {
+    width: 100%;
+    margin-bottom: clamp(0.5rem, 1vw, 1rem);
+    border-collapse: collapse;
+    font-size: clamp(0.8rem, 1.2vw, 1rem); /* Dynamic font size for table */
+}
+
+.merge-dialog th, .merge-dialog td {
+    padding: clamp(0.5rem, 1vw, 0.8rem);
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.merge-dialog label {
+    display: flex;
+    align-items: center;
+    margin-bottom: clamp(0.5rem, 1vw, 1rem);
+    font-size: clamp(0.8rem, 1.2vw, 1rem); /* Dynamic font size */
+}
+
+.merge-dialog input[type="checkbox"],
+.merge-dialog input[type="radio"] {
+    margin-right: clamp(0.5rem, 1vw, 1rem);
+}
+
+.dialog-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.dialog-footer button {
+    padding: clamp(5px, 1vw, 10px) clamp(10px, 2vw, 15px); /* Dynamic padding */
+    font-size: clamp(0.8rem, 1.2vw, 1rem); /* Dynamic font size for button */
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.dialog-footer button:hover {
+    background-color: #0056b3;
+}
+/* General layout adjustments */
+.patient-viewer {
+    padding: clamp(0.2rem, 0.4vw, 0.5rem) clamp(0.5rem, 1vw, 1rem);
+    font-size: clamp(0.7rem, 0.9vw, 1rem);
+}
+
+/* Table wrapper adjustments */
+.table-wrapper {
+    width: 100%;
+    margin-top: 0;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 700px;
+}
+
+.table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto; /* Adjust column width based on content */
+    margin-top: -5px;
+    font-size: clamp(0.7rem, 0.9vw, 1rem);
+}
+
+.table-wrapper th, 
+.table-wrapper td {
+    padding: clamp(0.2rem, 0.4vw, 0.5rem) clamp(0.5rem, 1vw, 1rem);
+    text-align: left;
+    font-size: clamp(0.7rem, 0.9vw, 1rem);
+    white-space: nowrap; /* Prevent wrapping inside columns */
+    border: none; /* Remove borders for cleaner look */
+}
+
+/* Zebra striping for table rows */
+.table-wrapper tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.table-wrapper tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.table-wrapper tbody tr.selected {
+    background-color: #8fb4ee !important;
+    color: black;
+}
+
+/* Adjust specific column widths dynamically based on content */
+.table-wrapper th, 
+.table-wrapper td {
+    width: auto; /* Allow columns to dynamically adjust based on content */
+}
+
+/* Ensure checkbox column is smaller */
+.table-wrapper td:first-child, 
+.table-wrapper th:first-child {
+    width: clamp(30px, 3vw, 50px);
+    padding: clamp(2px, 0.5vw, 4px);
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .table-wrapper td:first-child,
+    .table-wrapper th:first-child {
+        width: 25px;
+        padding: 2px;
+    }
+
+    .table-wrapper th, 
+    .table-wrapper td {
+        font-size: clamp(0.65rem, 1vw, 0.85rem);
+        padding: clamp(0.2rem, 0.5vw, 0.4rem);
+    }
+}
+
+/* Adjust for larger screens */
+@media (min-width: 1024px) {
+    .table-wrapper th, 
+    .table-wrapper td {
+        font-size: clamp(0.7rem, 0.9vw, 1rem);
+        padding: clamp(0.3rem, 0.7vw, 0.5rem);
+    }
+}
+
+/* Checkbox adjustments */
+input[type="checkbox"] {
+    width: clamp(0.7rem, 1.2vw, 1rem);
+    height: clamp(0.7rem, 1.2vw, 1rem);
+    cursor: pointer;
+    display: block;
+    margin: auto;
+}
+
+.visits-table td input[type="checkbox"], 
+.visits-table th input[type="checkbox"] {
+    display: block;
+    margin: auto;
+}
+
+/* Table-row hover effect */
+.table-wrapper tbody tr:hover {
+    background-color: #f0f8ff;
+}
+
+/* Dynamic font and padding for clear button */
+.clear-button {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    padding: clamp(6px, 1vw, 10px);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: clamp(0.75rem, 1vw, 0.85rem);
+}
+
+.clear-button:hover {
+    background-color: #f0f0f0;
+    border-color: black;
+    color: black;
+}
+
+/* Responsive adjustments for buttons and layout */
+@media (max-width: 768px) {
+    button, .footer-btn {
+        padding: clamp(0.2rem, 1vw, 0.4rem) clamp(0.4rem, 1.5vw, 0.8rem);
+        font-size: clamp(0.6rem, 1vw, 0.8rem);
+        min-width: 60px;
+    }
+}
+
+/* Adjustments for modal dialogs */
+.warning-dialog, .merge-dialog {
+    width: clamp(300px, 50%, 600px);
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: clamp(10px, 2vw, 20px);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+/* General layout adjustments */
+.patient-viewer {
+    padding: clamp(0.2rem, 0.4vw, 0.5rem) clamp(0.5rem, 1vw, 1rem);
+    font-size: clamp(0.7rem, 0.9vw, 1rem);
+}
+
+/* Table wrapper adjustments */
+.table-wrapper {
+    width: 100%;
+    margin-top: 0;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 700px;
+}
+
+.table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto; /* Let the table adjust column sizes dynamically */
+    margin-top: -5px;
+    font-size: clamp(0.7rem, 0.9vw, 1rem);
+}
+
+/* Remove padding between columns */
+.table-wrapper th, 
+.table-wrapper td {
+    padding: clamp(0.2rem, 0.2vw, 0.3rem) clamp(0.5rem, 0.8vw, 1rem);
+    text-align: left;
+    font-size: clamp(0.7rem, 0.9vw, 1rem);
+    white-space: nowrap; /* Prevent wrapping inside columns */
+    border: none; /* Remove borders for cleaner look */
+}
+
+/* Adjust specific column widths dynamically based on content */
+.table-wrapper th:nth-child(1), 
+.table-wrapper td:nth-child(1) {
+    width: clamp(30px, 5vw, 50px); /* Smaller column for checkbox */
+    padding: 0;
+    text-align: center;
+}
+
+.table-wrapper th:nth-child(2), 
+.table-wrapper td:nth-child(2) {
+    width: clamp(30px, 5vw, 50px); /* Smaller column for Emg */
+    text-align: center;
+}
+
+.table-wrapper th:nth-child(3), 
+.table-wrapper td:nth-child(3) {
+    width: clamp(80px, 10vw, 120px); /* Narrower column for name */
+}
+
+.table-wrapper th:nth-child(4), 
+.table-wrapper td:nth-child(4) {
+    width: clamp(100px, 15vw, 150px); /* Adjust column for ID */
+}
+
+/* Zebra striping for table rows */
+.table-wrapper tbody tr:nth-child(odd) {
+    background-color: #f9f9f9; /* Light grey for odd rows */
+}
+
+.table-wrapper tbody tr:nth-child(even) {
+    background-color: #ffffff; /* White for even rows */
+}
+
+.table-wrapper tbody tr.selected {
+    background-color: #8fb4ee !important; /* Light blue for selected rows */
+    color: black;
+}
+
+/* Reduce the checkbox size */
+input[type="checkbox"] {
+    width: clamp(0.6rem, 1vw, 0.8rem);
+    height: clamp(0.6rem, 1vw, 0.8rem);
+    cursor: pointer;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .table-wrapper th, 
+    .table-wrapper td {
+        font-size: clamp(0.6rem, 0.9vw, 0.8rem);
+        padding: clamp(0.1rem, 0.4vw, 0.2rem) clamp(0.3rem, 0.5vw, 0.5rem);
+    }
+}
+/* General layout adjustments */
+.patient-viewer {
+    padding: clamp(0.2rem, 0.4vw, 0.5rem) clamp(0.5rem, 1vw, 1rem);
+    font-size: clamp(0.7rem, 0.9vw, 1rem);
+}
+
+/* Table wrapper adjustments */
+.table-wrapper {
+    width: 100%;
+    margin-top: 0;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 700px;
+}
+
+.table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ensure all columns take up equal space */
+    margin-top: -5px;
+    font-size: clamp(0.7rem, 0.9vw, 1rem);
+}
+
+/* Remove padding between columns */
+.table-wrapper th, 
+.table-wrapper td {
+    padding: clamp(0.3rem, 0.5vw, 0.6rem); /* Adjust padding for even spacing */
+    text-align: center; /* Center-align all column text */
+    font-size: clamp(0.7rem, 0.9vw, 1rem);
+    border: none; /* Remove borders for cleaner look */
+}
+
+/* Checkbox adjustments */
+input[type="checkbox"] {
+    width: clamp(0.7rem, 1vw, 1rem);
+    height: clamp(0.7rem, 1vw, 1rem);
+    cursor: pointer;
+}
+
+/* Remove borders between columns */
+.table-wrapper th, 
+.table-wrapper td {
+    border: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .table-wrapper th, 
+    .table-wrapper td {
+        font-size: clamp(0.6rem, 0.9vw, 0.8rem);
+        padding: clamp(0.1rem, 0.4vw, 0.2rem) clamp(0.3rem, 0.5vw, 0.5rem);
+    }
+}
+
+/* Zebra striping for table rows */
+.table-wrapper tbody tr:nth-child(odd) {
+    background-color: #f9f9f9; /* Light grey for odd rows */
+}
+
+.table-wrapper tbody tr:nth-child(even) {
+    background-color: #ffffff; /* White for even rows */
+}
+
+.table-wrapper tbody tr.selected {
+    background-color: #8fb4ee !important; /* Light blue for selected rows */
+    color: black;
+}
+
+/* General layout adjustments */
+.patient-viewer {
+    padding: clamp(0.2rem, 0.4vw, 0.5rem) clamp(0.5rem, 1vw, 1rem);
+    font-size: clamp(0.7rem, 0.9vw, 1rem);
+}
+
+/* Table wrapper adjustments */
+.table-wrapper {
+    width: 100%;
+    margin-top: 0;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 700px;
+}
+
+.table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ensure all columns take up equal space */
+    margin-top: -5px;
+    font-size: clamp(0.7rem, 0.9vw, 1rem);
+}
+
+/* Adjust padding and column widths */
+.table-wrapper th, 
+.table-wrapper td {
+    padding: clamp(0.3rem, 0.5vw, 0.6rem); /* Adjust padding for even spacing */
+    text-align: left; /* Align text to the left */
+    font-size: clamp(0.7rem, 0.9vw, 1rem);
+    border: none; /* Remove borders for cleaner look */
+
+    /* Allow text to wrap if it exceeds the column width */
+    white-space: normal; /* Allow text to wrap to the next line */
+    word-wrap: break-word; /* Break long words if necessary */
+    word-break: break-all; /* Break text at any point to avoid overflow */
+}
+
+/* Reduce the width of the Emg and Name columns */
+.table-wrapper th:nth-child(1), 
+.table-wrapper td:nth-child(1) {
+    width: clamp(30px, 5vw, 50px); /* Smaller column for Emg */
+    text-align: center; /* Center-align Emg column */
+}
+
+.table-wrapper th:nth-child(2), 
+.table-wrapper td:nth-child(2) {
+    width: clamp(80px, 10vw, 120px); /* Narrower column for Name */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .table-wrapper th, 
+    .table-wrapper td {
+        font-size: clamp(0.6rem, 0.9vw, 0.8rem);
+        padding: clamp(0.1rem, 0.4vw, 0.2rem) clamp(0.3rem, 0.5vw, 0.5rem);
+    }
+}
+
+/* Zebra striping for table rows */
+.table-wrapper tbody tr:nth-child(odd) {
+    background-color: #f9f9f9; /* Light grey for odd rows */
+}
+
+.table-wrapper tbody tr:nth-child(even) {
+    background-color: #ffffff; /* White for even rows */
+}
+
+.table-wrapper tbody tr.selected {
+    background-color: #8fb4ee !important; /* Light blue for selected rows */
+    color: black;
+}
+
+/* Checkbox adjustments */
+input[type="checkbox"] {
+    width: clamp(0.7rem, 1vw, 1rem);
+    height: clamp(0.7rem, 1vw, 1rem);
+    cursor: pointer;
+}
+
+/* Remove borders between columns */
+.table-wrapper th, 
+.table-wrapper td {
+    border: none;
+}
+
+/* Table-row hover effect */
+.table-wrapper tbody tr:hover {
+    background-color: #f0f8ff;
+}
+
+/* Responsive design for dynamic text wrapping */
+@media (max-width: 768px) {
+    .table-wrapper th, 
+    .table-wrapper td {
+        font-size: clamp(0.6rem, 0.9vw, 0.8rem);
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+}

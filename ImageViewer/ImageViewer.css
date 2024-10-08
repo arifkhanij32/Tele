@@ -1,0 +1,60 @@
+/* src/imageViewer .css */
+
+.toolbar {
+    display: flex;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    overflow-x: auto;
+}
+
+.toolbar-section {
+    display: flex;
+    align-items: center;
+}
+
+.toolbar-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.toolbar-button i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.toolbar-button:hover {
+    color: #ff9800;
+}
+.editor-container{
+    height: 1300;
+    width: 900;
+}
+
+body {
+    font-size: 14px;
+}
+
+.mce-content-body {
+    font-size: 14px;
+}
+
+.tox-toolbar {
+    padding: 4px;
+}
+
+.tox .tox-toolbar__group {
+    padding: 0;
+}
+
+.tox .tox-button {
+    font-size: 14px;
+}

@@ -1,0 +1,93 @@
+
+.share-with-physician-dialog {
+    position: relative;
+    background-color: white;
+    padding: clamp(10px, 2vw, 12px); /* Reduced padding */
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 40vw; /* Reduced width */
+    max-width: 70vw; /* Ensure it doesn't exceed viewport width */
+    max-height: 80vh; /* Ensure it doesn't exceed viewport height */
+    overflow: hidden;
+    font-size: var(--font-size-medium); /* Set the dialog's base font size */
+}
+
+@media (max-width: 600px) {
+    .share-with-physician-dialog {
+        width: 60vw; /* Full width on smaller screens */
+        padding: 8px; /* Adjust padding for smaller screens */
+    }
+}
+
+
+.share-with-physician-dialog h2 {
+    text-align: center;
+}
+
+.physician-table {
+    width: 100%;
+    border-collapse: collapse;
+    flex: 1; /* Allow the table to take up available space */
+    overflow-y: auto; /* Enable vertical scrollbar */
+}
+
+.physician-table thead {
+    background-color: #f2f2f2;
+}
+
+.physician-table th,
+.physician-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.physician-table th {
+    background-color: #f2f2f2;
+}
+
+.physician-table tbody {
+    display: block;
+    max-height: 40vh; /* Set a max height for the table body */
+    overflow-y: auto; /* Enable vertical scrollbar */
+}
+
+.physician-table thead,
+.physician-table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.physician-table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.dialog-footer {
+    display: flex;
+    justify-content: space-between; /* Adjust this to space-around or space-evenly if needed */
+    margin-top: 20px;
+}
+
+.dialog-footer button {
+    margin: 0 5px; /* Optional: to add space between buttons */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.selected {
+    background-color: #e6f7ff;
+}
