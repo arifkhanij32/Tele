@@ -1,0 +1,177 @@
+/* Main Service Page Container */
+.servicePage {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1002;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 900px;  /* Medium size default width */
+    height: 500px;  /* Default height */
+    transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+}
+
+/* Maximized view for larger screens */
+.servicePage.maximized {
+    width: 95%;
+    height: 95%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Smaller screens (tablets, small laptops) */
+@media (max-width: 1024px) {
+    .servicePage {
+        width: 90%;
+        height: 600px;
+        padding: 8px;
+    }
+    .servicePage-content {
+        padding: 8px;
+    }
+    .patient-details,
+    .service-list {
+        padding: 8px;
+    }
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+    .servicePage {
+        width: 95%;
+        height: 550px;
+        padding: 5px;
+    }
+    .servicePage-content {
+        padding: 5px;
+    }
+    .patient-details,
+    .service-list {
+        width: 100%;
+        padding: 5px;
+    }
+}
+
+/* Very small mobile devices */
+@media (max-width: 480px) {
+    .servicePage {
+        width: 100%;
+        height: 500px;
+        padding: 3px;
+    }
+    .servicePage-content {
+        padding: 3px;
+    }
+    .patient-details,
+    .service-list {
+        width: 100%;
+        padding: 3px;
+    }
+}
+
+/* Close Button Styling - Smaller */
+.servicePage-closeButton {
+    position: absolute;
+    top: 5px; /* Adjust top position */
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: #333;
+    font-size: 18px;  /* Reduced font size */
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Hover effect for close and maximize buttons */
+.servicePage-closeButton:hover,
+.servicePage-maximizeButton:hover {
+    color: #d00;
+}
+
+/* Maximize Button */
+.servicePage-maximizeButton {
+    background: transparent;
+    border: none;
+    color: #333;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+/* Service Page Content */
+.servicePage-content {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    overflow: auto;
+    padding: 10px;
+}
+
+/* Patient Details Section */
+.patient-details {
+    width: 40%;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Service List Section */
+.service-list {
+    width: 55%;
+    overflow-y: auto;
+    padding-left: 10px;
+}
+
+/* Service Items Styling */
+.service-items {
+    height: 500px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* Other Visits Section */
+.other-visits {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* Search Bar Styling */
+.service-search {
+    width: calc(100% - 40px);  /* Increase width */
+    padding: 7px;  /* Increase padding */
+    margin-bottom: 20px;  /* Add gap at the bottom */
+    text-align: left;  /* Align input to the left */
+    font-size: 14px;  /* Make the text slightly bigger */
+    border-radius: 5px;  /* Add border-radius for a smoother look */
+    border: 1px solid #ccc;
+}
+
+/* Minimized padding for extra small screens */
+.servicePage.minimized-padding {
+    padding: 5px;
+}
+
+/* Add overlay and modal handling */
+.hide-overlay {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.modal-wrapper {
+    z-index: 10000;
+}
+
+.overlay {
+    z-index: 10001;
+}

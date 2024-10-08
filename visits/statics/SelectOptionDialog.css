@@ -1,0 +1,66 @@
+.backsideDialogOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.selectOptionDialog {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 400px;
+  width: 90%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1002; /* Ensure it is above the new patient dialog */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+
+.selectOptionDialog-closeButton {
+  background: transparent;
+  border: none;
+  color: #333;
+  font-size: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.selectOptionDialog-closeButton:hover {
+  color: #d00;
+}
+
+.selectOptionDialog h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.selectOptionDialog ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.selectOptionDialog ul li {
+  padding: 10px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.selectOptionDialog ul li:hover {
+  background: #f0f0f0;
+}

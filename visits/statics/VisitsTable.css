@@ -1,0 +1,531 @@
+/* Button Style */
+
+button.custom-button {
+    background-color: white; /* White background */
+    color: black; /* Black text */
+    border: 2px solid black; /* Black border */
+    padding: 6px 12px; /* Padding for button */
+    border-radius: 4px; /* Slightly rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: clamp(0.75rem, 1vw, 0.85rem);
+}
+
+button.custom-button:hover {
+    background-color: #f0f0f0; /* Slightly darker background on hover */
+    border-color: black; /* Keep border black on hover */
+    color: black; /* Keep text black on hover */
+}
+
+/* Specific for Clear Button */
+button.clear-button {
+    background-color: white; /* White background */
+    color: black; /* Black text */
+    border: 2px solid black; /* Black border */
+    padding: 6px 12px; /* Padding for button */
+    border-radius: 4px; /* Slightly rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: clamp(0.75rem, 1vw, 0.85rem);
+}
+
+/* Apply Custom Style to Add Visit Button */
+.add-visit-button {
+    background-color: white; /* White background */
+    color: black; /* Black text */
+    border: 2px solid black; /* Black border */
+    padding: 6px 12px; /* Padding for button */
+    border-radius: 4px; /* Slightly rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: clamp(0.75rem, 1vw, 0.85rem);
+}
+
+.add-visit-button:hover {
+    background-color: #f0f0f0; /* Slightly darker background on hover */
+    border-color: black; /* Keep border black on hover */
+    color: black; /* Keep text black on hover */
+}
+
+
+
+.visits-table-header {
+    flex: 0 0 auto;
+    overflow: hidden;
+    width: 100%;
+}
+
+.visits-table-body {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.visits-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    overflow-x: auto;
+    border: none;
+    margin-top: -5px; /* Reduce space between filters and table */
+}
+
+.visits-table th, .visits-table td {
+    border: none;
+    padding: clamp(4px, 0.5vw, 6px);
+    text-align: center;
+    word-wrap: break-word;
+    font-size: clamp(0.65rem, 0.8vw, 0.85rem);
+}
+
+.visits-table th {
+    background-color: #f2f2f2;
+    text-align: center;
+    font-weight: bold;
+    font-size: clamp(0.75rem, 1vw, 1rem);
+}
+
+.visits-table tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* White for odd rows */
+}
+
+.visits-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light grey for even rows */
+}
+
+.visits-table tbody tr:hover {
+    background-color: #f0f8ff; /* Light color on hover */
+}
+
+
+
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.VisitsPage {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    padding: 5px 10px; /* Reduce padding to minimize space */
+}
+
+.header {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px; /* Adjust bottom margin */
+    text-align: left;
+    align-items: flex-start;
+    width: 100%;
+}
+
+
+
+
+/* Remove Border from Footer Buttons */
+.footer-button {
+    background-color: transparent !important; /* Keep background transparent */
+    color: black !important; /* Ensure text color is black */
+    border: none; /* Remove border */
+    cursor: pointer;
+    font-size: clamp(0.75rem, 1vw, 0.85rem);
+    margin: 0 10px;
+    width: auto;
+    height: auto;
+    box-shadow: none;
+}
+
+.footer-button .icon {
+    font-size: 24px;
+    color: black !important; /* Ensure icon color is black */
+    margin-bottom: 5px; /* Add space between icon and text */
+}
+
+.footer-button span {
+    font-size: clamp(0.65rem, 0.9vw, 0.75rem);
+    text-align: center;
+    color: black !important; /* Ensure text color is black */
+}
+
+.footer-button:hover {
+    text-decoration: underline; /* Optional underline on hover */
+    background-color: transparent !important; /* Ensure hover background stays transparent */
+}
+
+.footer-button.disabled {
+    color: #ccc; /* Light grey for disabled text */
+    cursor: not-allowed;
+}
+
+.footer-button.disabled .icon {
+    color: #ccc; /* Light grey icon for disabled buttons */
+}
+
+.footer-button.disabled:hover {
+    text-decoration: none; /* No underline on hover for disabled buttons */
+    background-color: transparent !important; /* Ensure disabled hover background stays transparent */
+}
+
+.counts {
+    display: flex;
+    gap: 5px;
+    height: auto;
+    flex-direction: row;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 4px;
+    justify-content: space-around;
+    width: 40%;
+    margin-left: auto;
+    margin-right: 5px;
+    font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+}
+
+.counts div {
+    padding: 4px 8px;
+    text-align: top;
+    border-right: 1px solid #ddd;
+    flex: 1;
+    font-weight: bold;
+}
+
+.counts div:last-child {
+    border-right: none;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-button {
+        width: 100%;
+        font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+    }
+
+    .footer-icon {
+        font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+    }
+
+    .visits-table th, .visits-table td {
+        font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+        padding: 4px 8px;
+    }
+
+    .counts {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+/* Styles for Medium Screens (e.g., Tablets) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .footer-button {
+        font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+    }
+
+    .footer-icon {
+        font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+    }
+}
+.search-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 98%;
+    margin-bottom: 5px;
+    margin-top: -22px;
+    transition: all 0.3s ease; /* Smooth transition for dynamic changes */
+}
+
+/* Adjust the search container for smaller screens */
+@media (max-width: 768px) {
+    .search-container {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: stretch; /* Make sure elements take full width */
+        margin-top: 0;
+        width: 100%;
+    }
+
+    .search-container input {
+        width: 100%; /* Input takes full width */
+        margin-bottom: 10px; /* Space between input and other elements */
+    }
+
+    .filters {
+        justify-content: flex-start; /* Align filters to start */
+        width: 100%; /* Filters take full width */
+    }
+}
+
+/* Adjust the search container for medium screens (e.g., tablets) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .search-container {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: -10px;
+        width: 100%;
+    }
+
+    .search-container input {
+        width: 70%;
+    }
+
+    .filters {
+        justify-content: flex-end;
+        width: 30%;
+    }
+}
+
+/* Adjust the search container for large screens */
+@media (min-width: 1024px) {
+    .search-container {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: -12px;
+        width: 99%;
+    }
+
+    .search-container input {
+        width: 99%;
+    }
+
+    .filters {
+        justify-content: flex-end;
+        width: 23%;
+    }
+}
+.filters {
+    display: flex;
+    gap: 5px; /* Gap between filters */
+    align-items: center;
+    margin-top: 3px; /* Move filters closer to the search bar */
+    margin-bottom: 5px; /* Space between filters and table */
+    flex-wrap: wrap; /* Allow filters to wrap on smaller screens */
+}
+
+/* Dynamic font size and padding based on window size */
+.filters select,
+.filters button {
+    padding: clamp(2px, 0.5vw, 4px); /* Dynamically adjusts padding */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: clamp(0.7rem, 0.9vw, 0.9rem); /* Dynamically adjusts font size */
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column; /* Stack filters vertically */
+        align-items: flex-start; /* Align filters to the start */
+        width: 100%; /* Full width */
+        gap: 8px; /* Increase gap for better spacing */
+    }
+
+    .filters select,
+    .filters button {
+        width: 100%; /* Full width for better touch experience */
+        padding: clamp(4px, 1vw, 8px); /* Slightly increase padding for easier touch */
+        font-size: clamp(0.75rem, 1vw, 1rem); /* Slightly increase font size */
+    }
+}
+
+/* For medium screens (e.g., tablets) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .filters {
+        flex-direction: row; /* Keep filters in a row */
+        justify-content: space-between; /* Space filters evenly */
+        width: 100%; /* Full width */
+    }
+
+    .filters select,
+    .filters button {
+        width: auto; /* Adjust to content width */
+        padding: clamp(3px, 0.7vw, 6px); /* Adjust padding */
+        font-size: clamp(0.7rem, 0.9vw, 0.9rem); /* Font size adjustment */
+    }
+}
+
+/* For larger screens */
+@media (min-width: 1024px) {
+    .filters {
+        flex-direction: row; /* Keep filters in a row */
+        justify-content: flex-start; /* Align filters to the right */
+        width: 100%;
+    }
+
+    .filters select,
+    .filters button {
+        width: auto; /* Adjust to content width */
+        padding: clamp(2px, 0.5vw, 4px); /* Maintain tight padding */
+        font-size: clamp(0.7rem, 0.9vw, 0.9rem); /* Maintain dynamic font size */
+    }
+}
+.visits-table-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 200px); /* Adjust height to fit content evenly */
+    margin-top: -14px; /* Maintain a small top margin for the container */
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden; /* Prevent vertical overflow */
+    transition: height 0.3s ease, margin-top 0.3s ease; /* Smooth transitions for height and margin changes */
+}
+
+.visits-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    overflow-x: auto;
+    border: none;
+    margin-top: 12px; /* Reduced top margin for the table */
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+    .visits-table-container {
+        height: calc(100vh - 150px); /* Adjust height for smaller screens */
+        margin-top: -10px; /* Adjust margin for smaller screens */
+        overflow-y: auto; /* Enable vertical scrolling if content overflows */
+        padding: 10px; /* Add padding for better spacing */
+    }
+
+    .visits-table {
+        margin-top: 10px; /* Reduced top margin for the table on smaller screens */
+    }
+}
+
+/* For medium screens (e.g., tablets) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .visits-table-container {
+        height: calc(100vh - 180px); /* Adjust height for medium screens */
+        margin-top: -12px; /* Adjust margin for medium screens */
+        overflow-y: auto; /* Enable vertical scrolling if content overflows */
+    }
+
+    .visits-table {
+        margin-top: 11px; /* Reduced top margin for the table on medium screens */
+    }
+}
+
+/* For larger screens */
+@media (min-width: 1024px) {
+    .visits-table-container {
+        height: calc(100vh - 220px); /* Adjust height for larger screens */
+        margin-top: -16px; /* Slightly increase top margin */
+        overflow-y: auto; /* Enable vertical scrolling if content overflows */
+    }
+
+    .visits-table {
+        margin-top: 12px; /* Reduced top margin for the table on larger screens */
+    }
+}
+.visits-table tbody td:first-child {
+    width: clamp(25px, 5vw, 50px); /* Dynamically adjust width based on screen size */
+    padding: clamp(2px, 0.5vw, 4px); /* Adjust padding based on screen size */
+}
+
+.visits-table thead th:first-child {
+    width: clamp(15px, 5vw, 50px); /* Header width matches checkbox column */
+}
+
+@media (max-width: 768px) {
+    .visits-table tbody td:first-child,
+    .visits-table thead th:first-child {
+        width: 25px; /* Keep small on mobile */
+        padding: 2px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .visits-table tbody td:first-child,
+    .visits-table thead th:first-child {
+        width: 50px; /* Larger width on bigger screens */
+        padding: 4px;
+    }
+}
+/* Specific column (second column) for Name */
+.table-wrapper td:nth-child(1),
+.table-wrapper th:nth-child(1) {
+    width: clamp(100px, 20vw, 200px); /* Adjust name column width dynamically */
+}
+
+/* Specific column (fourth column) for ID */
+.table-wrapper td:nth-child(1),
+.table-wrapper th:nth-child(1) {
+    width: clamp(80px, 15vw, 150px); /* Adjust ID column width dynamically */
+}
+.visits-table {
+    width: 100%;
+    table-layout: fixed; /* Ensure even distribution of columns */
+    border-collapse: collapse; /* Ensures that there's no separation between borders */
+    margin-top: 12px;
+}
+
+.visits-table th, .visits-table td {
+    padding: clamp(4px, 0.5vw, 6px); /* Adjust padding dynamically */
+    text-align: center;
+    word-wrap: break-word;
+    font-size: clamp(0.65rem, 0.8vw, 0.85rem);
+    border: none; /* Remove border between columns */
+}
+
+/* Adjust specific column sizes dynamically for responsiveness */
+
+/* For the checkbox column */
+.visits-table td:first-child,
+.visits-table th:first-child {
+    width: clamp(25px, 5vw, 50px); /* Dynamically adjust width based on screen size */
+    padding: clamp(2px, 0.5vw, 4px); /* Adjust padding based on screen size */
+}
+
+@media (max-width: 768px) {
+    .visits-table td:first-child,
+    .visits-table th:first-child {
+        width: 25px; /* Keep small on mobile */
+        padding: 2px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .visits-table td:first-child,
+    .visits-table th:first-child {
+        width: 50px; /* Larger width on bigger screens */
+        padding: 4px;
+    }
+}
+
+/* Ensure all columns have even space */
+.visits-table th,
+.visits-table td {
+    padding: clamp(4px, 0.5vw, 6px); /* Adds space between text and border */
+    width: 1fr; /* Equal width for all columns */
+    border: none; /* Ensure no borders between columns */
+}
+
+/* For the entire row */
+.visits-table tbody tr {
+    display: table-row;
+}
+
+/* Zebra striping for table rows */
+.visits-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.visits-table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+/* Selected row color */
+.visits-table tbody tr.selected {
+    background-color: #8fb4ee; /* Light blue for selected rows */
+}

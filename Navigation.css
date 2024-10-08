@@ -1,0 +1,76 @@
+.navigation {
+    background-color: #f4f4f4;
+    padding: clamp(5px, 1vw, 10px); /* Responsive padding */
+    display: flex;
+    align-items: center;
+    font-size: clamp(0.7rem, 1vw, 1.2rem); /* Slightly smaller responsive font size */
+}
+
+.user-viewer {
+    margin-right: clamp(5px, 1vw, 8px); /* Responsive margin */
+}
+
+.user-viewer img {
+    width: clamp(30px, 4vw, 40px); /* Responsive width */
+    height: clamp(30px, 4vw, 40px); /* Responsive height */
+    border-radius: 50%;
+}
+
+.navigation ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: clamp(5px, 1vw, 10px); /* Responsive gap */
+    align-items: center;
+    flex: 1;
+    font-size: inherit; /* Inherit font size from .navigation */
+}
+
+.navigation li {
+    display: inline;
+    font-size: clamp(0.9rem, 0.9vw, 0.9rem); 
+}
+
+.navigation a {
+    text-decoration: none;
+    padding: clamp(3px, 0.5vw, 5px) clamp(5px, 1vw, 10px); /* Responsive padding */
+    color: #333;
+    border-radius: 4px;
+    font-size: inherit; /* Inherit font size from .navigation */
+}
+
+.navigation a:hover {
+    background-color: #ddd;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .navigation {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: clamp(3px, 1vw, 5px); /* Reduced padding for smaller screens */
+    }
+
+    .navigation ul {
+        flex-direction: column;
+        gap: clamp(3px, 0.5vw, 5px); /* Reduced gap for smaller screens */
+        width: 100%; /* Ensure full width for navigation items */
+    }
+
+    .user-viewer {
+        margin-right: 0; /* Remove right margin for smaller screens */
+        margin-bottom: clamp(3px, 0.5vw, 5px); /* Add bottom margin for spacing */
+    }
+
+    .user-viewer img {
+        width: clamp(20px, 3vw, 30px); /* Further reduced width for smaller screens */
+        height: clamp(20px, 3vw, 30px); /* Further reduced height for smaller screens */
+    }
+
+    .navigation a {
+        width: 100%; /* Full width for navigation links */
+        text-align: center; /* Center text for navigation links */
+        padding: clamp(3px, 1vw, 5px); /* Reduced padding for smaller screens */
+    }
+}

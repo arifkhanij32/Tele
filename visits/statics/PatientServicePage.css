@@ -1,0 +1,596 @@
+:root {
+    --font-size-small: clamp(0.6rem, 1vw, 0.75rem); /* Smaller, more responsive font size */
+    --font-size-medium: clamp(0.75rem, 1.5vw, 1rem); /* Adjusted for responsiveness */
+    --font-size-large: clamp(1rem, 2vw, 1.25rem); /* Larger, responsive font size */
+    --padding-small: clamp(2px, 0.5vw, 5px); /* Reduced padding for smaller elements */
+    --padding-medium: clamp(4px, 1vw, 10px); /* Medium padding */
+    --padding-large: clamp(8px, 1.5vw, 15px); /* Larger padding */
+    --button-height: clamp(20px, 3vh, 30px); /* Dynamic button height */
+}
+.modal,
+.notes-modal,
+.documents-modal {
+    background-color: white;
+    width: clamp(300px, 30vw, 400px); /* Responsive width */
+    height: auto; /* Auto height to fit content */
+    margin: 0; /* Remove any default margin */
+    padding: var(--padding-medium);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for a 3D effect */
+    position: fixed; /* Use fixed positioning */
+    top: 50%; /* Position 50% from the top */
+    left: 50%; /* Position 50% from the left */
+    transform: translate(-50%, -50%); /* Translate by -50% on both axes to center */
+    z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+.overlay {
+    position: fixed; /* Fixed positioning for full-screen coverage */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 999; /* Just below the modal */
+}
+
+
+html, body {
+    overflow: hidden; /* Prevent scrolling of the main page */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-size-medium); /* Set base font size */
+}
+/* Target the container that holds these totals */
+.totals, .net-amount, .net-amount3 {
+    text-align: right; /* Aligns all text inside this container to the right */
+    margin-right: 20px; /* Optional: Add some right margin for spacing */
+}
+
+.totals h4, .net-amount h3, .net-amount3 h3 {
+    margin: 0; /* Remove default margins if necessary */
+    padding: 5px 0; /* Add some vertical padding if desired */
+}
+/* Add space between buttons */
+.net-amount1 , .net-amount3{
+    display: flex; /* Align buttons in a row */
+    gap: 10px; /* Add a 10px gap between buttons (you can adjust this value) */
+}
+
+/* Optional: You can adjust the individual button's margin */
+.net-amount1 button, .net-amount3 {
+    margin-right: 10px; /* Add margin to the right of each button */
+}
+
+
+
+.patient-details-page {
+    background: rgb(255, 255, 255);
+    padding: var(--padding-small);
+    margin: 10px auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1003;
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    width: clamp(700px, 80vw, 1310px); /* Responsive width */
+    height: clamp(500px, 70vh, 800px); /* Responsive height */
+    overflow: hidden; /* Prevent overflow of the main container */
+    border-radius: 15px;
+}
+
+.patient-details {
+    width: clamp(200px, 30vw, 400px); /* Responsive width */
+    text-align: left;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--padding-medium);
+    padding: var(--padding-small) 0;
+    position: relative;
+}
+
+.closeButton {
+    position: absolute;
+    top: var(--padding-small);
+    right: var(--padding-medium);
+    color: black;
+    background: transparent;
+    border: none; /* Remove the border */
+    font-size: 1.5rem; /* Increase the font size */
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0; /* Remove any padding */
+    outline: none; /* Remove the square outline when focused */
+}
+
+
+.closeButton:hover {
+    color: black; /* Ensure the color remains black on hover */
+    background: transparent; /* Ensure the background stays transparent */
+}
+
+
+
+.section-header, .bill-section-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: var(--padding-small);
+}
+
+.bill-section-header-button {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: var(--padding-medium);
+    cursor: pointer;
+    width: clamp(100px, 15vw, 200px); /* Responsive width */
+    margin-bottom: var(--padding-small);
+}
+
+.patient-info, .visit-details, .billing-details {
+    padding: var(--padding-small);
+    position: relative;
+    flex: 1;
+    top: var(--padding-medium);
+    overflow: hidden; /* Prevent overflow in these sections */
+}
+
+.patient-info h2, .visit-details h2 {
+    margin-bottom: var(--padding-small);
+    text-align: left;
+    font-size: var(--font-size-large);
+}
+
+.edit-button {
+    background-color: white;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: var(--padding-small) var(--padding-medium);
+    cursor: pointer;
+    margin-bottom: var(--padding-small);
+    text-align: left;
+}
+
+.edit-button:hover {
+    background-color: white;
+}
+
+.other-visits ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.notes-documents {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-medium);
+    text-align: left;
+    margin-bottom: var(--padding-large);
+}
+
+.services-container {
+    max-height: clamp(80px, 15vh, 120px); /* Responsive container height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ccc; /* Optional: Add a border to the container */
+    padding: var(--padding-small); /* Reduced padding */
+}
+
+.billing-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    grid-template-columns: 2fr 1.5fr 2fr auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-small);
+}
+
+.billing-details ul li {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    align-items: center;
+    gap: var(--padding-small);
+    text-align: left;
+}
+
+.remove-button {
+    background-color: white;
+    color: black;
+    border: 1px solid white; /* Add a red border */
+    border-radius: 5px;
+    padding: var(--padding-small) var(--padding-medium);
+    cursor: pointer;
+    font-size: var(--font-size-small); /* Responsive font size */
+}
+
+.remove-button:hover {
+    background-color: white;
+    border-color: white;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    overflow: hidden;
+    height: var(--button-height); /* Dynamic height */
+}
+
+.quantity-controls input {
+    border: none;
+    width: clamp(20px, 5vw, 30px); /* Adjusted width for input */
+    text-align: center;
+    font-size: var(--font-size-small);
+    color: #000;
+    margin: 0;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    height: 100%; /* Set height to 100% of the container */
+}
+
+.quantity-controls button {
+    background-color: white;
+    border: none;
+    color: black;
+    padding: var(--padding-small);
+    cursor: pointer;
+    font-size: var(--font-size-small);
+    height: 100%; /* Set height to 100% of the container */
+}
+
+.quantity-controls button:hover {
+    background-color: #f1f1f1;
+}
+
+.maximize-button {
+    position: absolute;
+    top: var(--padding-small);
+    right: calc(var(--padding-medium) * 2);
+    background: transparent;
+    border: none;
+    color: black;
+    font-size: var(--font-size-large);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.maximize-button:hover {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .patient-details-page {
+        width: 90vw;
+        height: 90vh;
+    }
+
+    .maximize-button{
+        font-size: var(--font-size-medium);
+        top: var(--padding-small);
+        right: var(--padding-small);
+    }
+}
+
+/* Quantity controls with white background */
+.fixed-quantity-controls button {
+    width: 25px;
+    height: 25px;
+    background-color: white !important; /* Force background color to white */
+}
+
+.fixed-quantity-controls input {
+    width: 20px;
+    text-align: center;
+    background-color: white !important; /* Force background color to white */
+}
+
+/* Remove button styling */
+.remove-button {
+    background-color: white !important; /* Force background color to white */
+    color: red; /* Set text color to red */
+    border: 1px solid red; /* Add a red border */
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Additional specificity to override other styles */
+.service-item .service-name {
+    font-size: var(--font-size-medium); /* Set dynamic font size */
+    font-weight: normal; /* Ensure the font is not bold */
+    font-family: Arial, sans-serif; /* Optional: Set to a normal, default font family */
+    background-color: transparent; /* Ensure background is transparent */
+    color: black; /* Set text color to black */
+    padding: var(--padding-small); /* Apply dynamic padding */
+}
+
+.service-item .remove-button,
+.service-item .fixed-quantity-controls {
+    background-color: white !important; /* Force background color to white */
+}
+
+/* Set the important flag to ensure the background is overridden */
+.service-item * {
+    background-color: white !important;
+}
+body {
+    font-size: 1.5vw; /* or adjust based on your preference */
+}
+
+/* Alternatively, you can use media queries */
+@media (max-width: 768px) {
+    body {
+        font-size: 4vw;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    body {
+        font-size: 2vw;
+    }
+}
+
+@media (min-width: 1025px) {
+    body {
+        font-size: 1.5vw;
+    }
+}
+/* General Button Styling */
+button {
+    background-color: white !important; /* Set background to white */
+    color: black !important; /* Set text color to black */
+    border: 1px solid #ccc; /* Add a light border */
+    border-radius: 5px; /* Keep the border-radius for rounded corners */
+    padding: 6px 12px; /* Adjust padding as needed */
+    cursor: pointer; /* Keep cursor as pointer */
+    font-size: 14px; /* Adjust font size if needed */
+    text-align: center; /* Ensure text is centered */
+}
+
+/* Hover Effect for Buttons */
+button:hover {
+    background-color: #f1f1f1 !important; /* Light grey background on hover */
+    color: black !important; /* Keep text color as black */
+    border-color: white; /* Slightly darker border on hover */
+}
+
+/* Specific Button Adjustments */
+.edit-button,
+.notes button,
+.documents button,
+.referrer button,
+.bill-section-header-button,
+.add-button
+{
+    background-color: white !important; /* Set background color to white */
+    color: black !important; /* Set text color to black */
+    border: 1px solid black !important; /* Set border color to black */
+    border-radius: 5px; /* Rounded corners */
+    padding: 6px 12px; /* Adjust padding as needed */
+}
+
+/* Additional Hover Effect */
+.edit-button:hover,
+.notes button:hover,
+.documents button:hover,
+.referrer button:hover,
+.add-button:hover
+ {
+    background-color: #f1f1f1 !important; /* Light grey background on hover */
+    color: black !important; /* Keep text color as black */
+    border-color: black !important; /* Ensure border remains black */
+}
+
+.quantity-controls button {
+    background-color: white; /* Keep background color white */
+    border: none !important; /* Remove border */
+    color: black; /* Set text color to black */
+    padding: 0 10px; /* Adjust padding as needed */
+    height: 100%; /* Maintain height */
+}
+
+.quantity-controls button:hover {
+    background-color: white !important; /* Remove hover color by setting it to white */
+    color: black !important; /* Ensure text color stays black */
+    border: none !important; /* Ensure no border is added on hover */
+}
+
+.quantity-controls .quantity-decrease,
+.quantity-controls .quantity-increase {
+    border: none !important; /* Ensure no border */
+    padding: 5px 10px; /* Adjust padding as needed */
+    background-color: transparent !important; /* Transparent background */
+}
+
+.quantity-controls .quantity-decrease:hover,
+.quantity-controls .quantity-increase:hover {
+    background-color: transparent !important; /* Keep background transparent on hover */
+    color: black !important; /* Keep text color black */
+}
+
+/* General Button Styling */
+button {
+    background-color: white !important; /* Set background color to white */
+    color: black !important; /* Set text color to black */
+    border: 1px solid black !important; /* Set border color to black */
+    border-radius: 5px; /* Rounded corners */
+    padding: 6px 12px; /* Adjust padding as needed */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 14px; /* Font size */
+}
+
+/* Hover Effect */
+button:hover {
+    background-color: #f1f1f1 !important; /* Light grey background on hover */
+    color: black !important; /* Keep text color as black */
+}
+
+/* Specific Button Adjustments */
+.add-button{
+    background-color: white !important; /* Set background color to white */
+    color: black !important; /* Set text color to black */
+    border: 1px solid black !important; /* Set border color to black */
+    border-radius: 5px; /* Rounded corners */
+    padding: 6px 12px; /* Adjust padding as needed */
+}
+
+/* Remove border around + and - buttons */
+.quantity-controls button {
+    border: none !important; /* Remove border */
+    background-color: white !important; /* Keep background color white */
+    color: black !important; /* Set text color to black */
+    padding: 0 10px; /* Adjust padding as needed */
+}
+
+/* Specific Button Border for + and - */
+.quantity-controls .quantity-decrease,
+.quantity-controls .quantity-increase {
+    border: none !important; /* Ensure no border */
+    padding: 5px 10px; /* Adjust padding as needed */
+    background-color: transparent !important; /* Transparent background */
+}
+
+/* Maximize Button Styling */
+.maximize-button {
+    background: transparent; /* Keep the background transparent */
+    border: none !important; /* Remove the border */
+    color: black; /* Set the color to black */
+    font-size: 24px; /* Adjust the font size as needed */
+    cursor: pointer; /* Keep the cursor as pointer */
+    font-weight: bold; /* Bold font */
+}
+
+
+/* Service Description List */
+.service-description-list {
+    max-height: calc(3 * 40px + 1rem); /* Set height to show 2 items, assuming each item is 40px */
+    overflow-y: auto; /* Enable vertical scrolling after 2 items */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%; /* Ensure the list takes the full width */
+    
+    /* Font smoothing to fix blurry text */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translateZ(0); /* Fix rendering with hardware acceleration */
+}
+
+/* Customize scrollbar styling */
+.service-description-list::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.service-description-list::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Track color */
+}
+
+.service-description-list::-webkit-scrollbar-thumb {
+    background-color: #888; /* Scrollbar thumb color */
+    border-radius: 10px; /* Scrollbar thumb roundness */
+    border: 2px solid #f1f1f1; /* Padding around thumb */
+}
+
+.service-description-list::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Thumb color on hover */
+}
+
+/* Fallback scrollbar styling for Firefox */
+.service-description-list {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #888 #f1f1f1; /* Scrollbar thumb and track color */
+}
+
+/* Service Item Styling */
+.service-item {
+    height: 40px; /* Assuming each service item is 40px high */
+    display: flex;
+    align-items: center; /* Vertically align content */
+    font-size: 16px; /* Use whole pixel values for font size */
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd; /* Optional: add border to separate items */
+}
+
+/* Fix blurry text */
+body, .service-description-list, .service-item {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translateZ(0);
+}
+
+
+
+.billing-details {
+    margin-top: 5vh;
+    max-height: 70vh; /* Adjust as needed */
+    overflow-y: auto; /* Enable scrolling for the billing details section */
+}
+.modal {
+    padding: 20px;
+    font-size: 18px; /* Default font size */
+}
+
+/* Payments container: Single box for all payment items with vertical scrollbar after 3 items */
+.payments-container {
+    /* Font smoothing and rendering fixes */
+    -webkit-font-smoothing: antialiased; /* Improve font rendering on webkit browsers */
+    -moz-osx-font-smoothing: grayscale; /* For Firefox on macOS */
+    transform: translateZ(0); /* Force hardware acceleration */
+    display: block; /* Block display to contain all payment items in a single box */
+    padding: 1rem; /* Adjust padding inside the container */
+    background-color: white; /* Set background color */
+    border: 1px solid #ccc; /* Add a border around the container */
+    border-radius: 5px; /* Round the corners */
+    margin-bottom: 2rem; /* Add margin below the container */
+    max-height: calc(15px * 3 + 1rem); /* Maximum height to show 3 items plus padding */
+    overflow-y: auto; /* Enable vertical scrolling when more than 3 items */
+}
+
+
+/* Payment items inside a single container */
+.payment-item {
+    display: block; /* Display each payment as a block inside the container */
+    margin-bottom: 0.5rem; /* Space between payment items */
+    font-size: 16px; /* Set a font size for payment text */
+    height: 40px; /* Set a height for each payment item */
+}
+
+/* Adjust scrollbar width */
+.payments-container::-webkit-scrollbar {
+    width: 10px; /* Set the width for the vertical scrollbar */
+}
+
+.payments-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.payments-container::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Space between buttons and scrollbar */
+.button-container {
+    margin-bottom: 20px; /* Space between buttons and scrollbar */
+}
+
+/* Small screen adjustments */
+@media (max-width: 668px) {
+    .payment-item {
+        font-size: 1vw; /* Adjust font size for smaller screens */
+    }
+}
