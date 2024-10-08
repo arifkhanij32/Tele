@@ -1,0 +1,47 @@
+
+.edit-service-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: clamp(10px, 2vw, 20px); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  width: clamp(200px, 50vw, 400px);
+}
+
+.edit-service-dialog form{
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-service-dialog label {
+  margin-bottom: clamp(5px, 1vw, 10px); 
+}
+
+.edit-service-dialog button {
+  margin-top: clamp(5px, 1vw, 10px); 
+}
+
+
+.edit-service-dialog-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: clamp(5px, 1vw, 10px); 
+}
+
+.edit-service-dialog-buttons button {
+  padding: clamp(3px, 0.5vw, 5px) clamp(5px, 1vw, 10px); 
+}
+.edit-service-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  filter: contrast(100%);
+  
+}

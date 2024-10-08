@@ -1,0 +1,153 @@
+:root {
+    --base-font-size: 16px;
+    --base-padding: 20px;
+    --button-font-size: 14px;
+}
+
+/* Responsive breakpoints for dynamic font and padding */
+@media (max-width: 1200px) {
+    :root {
+        --base-font-size: 15px;
+        --base-padding: 18px;
+        --button-font-size: 13px;
+    }
+}
+
+@media (max-width: 992px) {
+    :root {
+        --base-font-size: 14px;
+        --base-padding: 16px;
+        --button-font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --base-font-size: 13px;
+        --base-padding: 14px;
+        --button-font-size: 11px;
+    }
+}
+
+@media (max-width: 576px) {
+    :root {
+        --base-font-size: 12px;
+        --base-padding: 12px;
+        --button-font-size: 10px;
+    }
+}
+
+.users-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 98vh;
+    padding: var(--base-padding);
+    box-sizing: border-box;
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+    font-size: var(--base-font-size);
+}
+
+.users-search-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: clamp(6px, 1vw, 10px);
+    background-color: #dbdbdb;
+    border: 1px solid #cccbcb;
+    margin-bottom: 0px;
+}
+
+.users-search-bar input,
+.users-search-bar select {
+    padding: 0.5rem;
+    font-size: calc(var(--base-font-size) * 0.9);
+    border: 1px solid #cccbcb;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.users-search-bar button {
+    padding: clamp(5px, 0.5vw, 10px);
+    font-size: var(--button-font-size);
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.users-table-wrapper {
+    flex-grow: 2;
+    overflow-y: auto;
+    margin-bottom: 8%;
+    position: relative;
+}
+
+.users-table table {
+    width: 98%;
+    border-collapse: collapse;
+    font-size: calc(var(--base-font-size) * 0.95);
+}
+
+.users-table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f2f2f2;
+    z-index: 10;
+}
+
+th, td {
+    padding: clamp(10px, 1vw, 15px);
+    text-align: left;
+    border-bottom: 1px solid #000000;
+}
+
+.users-footer-buttons {
+    display: flex;
+    justify-content: flex-start;
+    padding: var(--base-padding);
+    background-color: #dbdbdb;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 10px;
+    position: fixed; /* Ensure footer stays at the bottom */
+    bottom: 0;
+    width: 100%; /* Span the entire width of the page */
+    z-index: 10; /* Ensure footer is always on top */
+    box-shadow: 0 -2px px rgba(184, 43, 43, 0.1); /* Add a slight shadow */
+}
+
+.users-footer-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(5px, 0.5vw, 10px) clamp(15px, 1vw, 20px);
+    font-size: var(--button-font-size);
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    width: auto; /* Adjust based on text */
+    min-width: 80px; /* Ensure buttons have a minimum width */
+}
+
+.users-footer-button:hover {
+    background-color: #b30000;
+}
+
+.users-footer-icon {
+    font-size: calc(var(--base-font-size) * 1.1);
+    margin-right: 5px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}

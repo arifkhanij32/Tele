@@ -1,0 +1,36 @@
+* General container for the bar chart */
+.bar-chart-container {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Title styling for the bar chart */
+.bar-chart-container h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+/* Make the chart responsive */
+.bar-chart-container canvas {
+    max-width: 30%;
+    height: 10px;
+
+}
+
+/* Small screen adjustments */
+@media (max-width: 768px) {
+    .bar-chart-container {
+        padding: 10px;
+    }
+
+    .bar-chart-container h3 {
+        font-size: 1.2rem;
+    }
+}
+

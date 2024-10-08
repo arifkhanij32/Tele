@@ -1,0 +1,137 @@
+.default-service-actions button {
+    padding: clamp(5px, 0.5vw, 10px) clamp(10px, 1vw, 20px); 
+    font-size: clamp(0.7rem, 0.9vw, 0.9rem); 
+    margin-bottom: 0;
+    background-color: white; 
+    color: black; 
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 3px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, border-color 0.3s ease; 
+    min-width: 110px; 
+}
+
+.default-service-actions button i {
+    font-size: 1.2em; 
+    color: black;
+}
+
+.default-service-actions button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #f0f0f0; 
+    color: #999; 
+    border-color: #ddd; 
+}
+
+.default-service-actions button:hover:not(:disabled) {
+    background-color: #f8f8f8; 
+    border-color: #999; 
+}
+
+.default-service-actions {
+    display: flex;
+    gap: 8px; 
+    justify-content: flex-start; 
+}
+
+.default-service-section {
+    border: 1px solid #000;
+    padding: 0; 
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 40px);
+    position: relative;
+    overflow: hidden;
+}
+
+.default-service-table-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: auto; 
+    font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+}
+
+.default-service-header {
+    background-color: white;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    padding: 10px;
+    color: black;
+    font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+    font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+}
+
+.default-service-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+}
+
+.default-service-table th, .default-service-table td {
+    padding: 8px;
+    text-align: center;
+    font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+}
+
+.default-service-table th {
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    color: black;
+    font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+}
+
+.default-service-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+    font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+}
+
+.default-service-table tbody tr:nth-child(odd) {
+    background-color: white;
+    font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+}
+
+.default-service-table tbody tr:hover {
+    background-color: #d3d3d3;
+    font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+}
+
+.default-service-actions {
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px 0;
+    background-color: #f9f9f9;
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+    gap: 10px;
+    padding-left: 20px;
+}
+
+.default-service-actions button {
+    padding: 4px 8px;
+    font-size: clamp(0.6rem, 0.9vw, 0.9rem);
+}
+.default-service-table tbody tr.selected {
+    background-color: #f0f8ff; 
+    font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+  }
